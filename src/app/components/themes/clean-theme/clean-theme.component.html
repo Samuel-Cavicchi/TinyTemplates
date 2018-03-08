@@ -1,0 +1,110 @@
+<div class="name-section">
+  <h1 class="bold">{{resume.basics.name}}</h1>
+
+  <div class="basics">
+    <div class="left-col">
+      <h2 class="bold">Email:</h2>
+      <h2 class="bold">Mobile:</h2>
+      <h2 class="bold">Address:</h2>
+
+    </div>
+    <div class="mid-col"></div>
+    <div class="right-col">
+      <h2>{{resume.basics.email}}</h2>
+      <h2>{{resume.basics.phone}}</h2>
+      <h2>{{resume.basics.location.address}}, {{resume.basics.location.city}} {{resume.basics.location.region}}</h2>
+
+    </div>
+  </div>
+</div>
+<div class="content-section">
+  <div class="content-item-section">
+    <p class="uppercase bold">Key Skills and Attributes</p>
+    <div class="break"></div>
+    <ul>
+      <div class="content-item" *ngFor="let skill of resume.skills" class="row">
+        <li>
+          <p>
+            <span class="bold">{{skill.name}}</span>
+            <span *ngIf="skill.keywords[0]">: </span>
+            <span *ngFor="let keyword of skill.keywords index as x">{{keyword}}
+              <span *ngIf="skill.keywords[x+1]">, </span>
+            </span>
+          </p>
+        </li>
+      </div>
+    </ul>
+  </div>
+
+  <div class="content-item-section">
+    <p class="uppercase bold">Education</p>
+    <div class="break"></div>
+    <div class="content-item" *ngFor="let education of resume.education">
+      <p class="bold">{{education.institution}}</p>
+      <p>{{education.startDate}} - {{education.endDate}}</p>
+      <p>{{education.area}}
+        <span *ngIf="education.gpa">({{education.gpa}})</span>
+      </p>
+    </div>
+
+  </div>
+
+  <div class="content-item-section">
+    <p class="bold" style="margin:0">Achievements and Certificates</p>
+    <div class="content-item">
+      <p style="font-style:italic" *ngFor="let award of resume.awards">{{award.title}} - {{award.awarder}}</p>
+    </div>
+  </div>
+
+  <div class="content-item-section">
+    <p class="uppercase bold">Employment Histroy</p>
+    <div class="break"></div>
+
+    <div class="content-item" style="padding: 15px" *ngFor="let work of resume.work">
+      <p class="uppercase bold" style="margin-bottom: 0px">{{work.position}}</p>
+      <div class="row">
+        <p class="uppercase bold" style="margin-top: 0">{{work.company}}</p>
+        <div class="spacer"></div>
+        <p class="uppercase bold">{{work.startDate}} - {{work.endDate}}</p>
+      </div>
+
+      <p class="small">{{work.summary}}</p>
+      <p *ngIf="work.highlights[0]" class="bold" style="text-decoration: underline;">Skills Developed</p>
+      <ul *ngIf="work.highlights[0]">
+        <li *ngFor="let highlight of work.highlights">
+          <p class="small">{{highlight}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content-item-section">
+    <p class="uppercase bold">Work Experience Placement</p>
+    <div class="break"></div>
+
+    <div class="content-item" style="padding: 15px" *ngFor="let volunteer of resume.volunteer">
+        <p class="uppercase bold" style="margin-bottom: 0px">{{volunteer.position}}</p>
+        <div class="row">
+          <p class="uppercase bold" style="margin-top: 0">{{volunteer.organization}}</p>
+          <div class="spacer"></div>
+          <p class="uppercase bold">{{volunteer.startDate}}</p>
+        </div>
+  
+        <p class="small">{{volunteer.summary}}</p>
+        <p *ngIf="volunteer.highlights[0]" class="bold" style="text-decoration: underline;">Skills Developed</p>
+        <ul *ngIf="volunteer.highlights[0]">
+          <li *ngFor="let highlight of volunteer.highlights">
+            <p class="small">{{highlight}}</p>
+          </li>
+        </ul>
+    </div>
+  </div>
+
+  <div class="content-item-section">
+    <p class="uppercase bold">Referees</p>
+    <div class="break"></div>
+    <div class="content-item" *ngFor="let reference of resume.references">
+      <p class="bold">{{reference.name}}</p>
+      <p class="small">{{reference.reference}}</p>
+    </div>
+  </div>

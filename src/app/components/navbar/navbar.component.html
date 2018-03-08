@@ -1,0 +1,7 @@
+<a routerLink="/home" routerLinkActive="active-link">Home</a>
+<a routerLink="/editor" routerLinkActive="active-link">Editor</a>
+<a routerLink="/themes" routerLinkActive="active-link">Themes</a>
+<a class="hidden"></a>
+<a *ngIf="!authService.user" class="login-link" routerLink="/login" routerLinkActive="active-link">Login</a>
+<a *ngIf="!authService.user" class="login-link" routerLink="/register" routerLinkActive="active-link">Register</a>
+<a *ngIf="authService.user" class="login-link" (click)="authService.logout()">Logout</a>

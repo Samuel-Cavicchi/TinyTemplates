@@ -1,0 +1,9 @@
+<div class="title-section">
+  <h2 class="mat-display-2">Register</h2>
+</div>
+<div *ngIf="authService.user">
+  <h3 class="mat-headline">You're already logged in!</h3>
+</div>
+<div class="form-container">
+  <app-register-form></app-register-form>
+</div>

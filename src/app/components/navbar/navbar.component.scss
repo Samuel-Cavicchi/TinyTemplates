@@ -1,0 +1,46 @@
+@import '~styles.scss';
+
+$background-color : grey;
+:host{
+    display:flex;
+    background: $background-color;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0 17%;
+    box-shadow: $z-depth-1;
+
+    a {
+        font-family: 'Roboto', sans-serif;
+        flex: 1 1 auto;
+        text-align: center;
+        align-self: center;
+        text-decoration: none;
+        max-width: 200px;
+        padding: 15px 50px;
+        color: white;
+        margin: 0 15px;
+        
+        &.active-link {
+            background: darken($background-color, 10%);
+            border-radius: 0!important;
+            //color: $secondary-color;
+        } 
+        background: $background-color;
+        &:hover {
+            border-radius: 10px;
+            background: darken($background-color, 10%);
+        }
+        &.hidden{
+            visibility: hidden;
+            flex: 1 1 auto;
+            max-width: 1px;
+        }
+        &.login-link {
+            padding: 15px 1%;
+            max-width: 5%;
+        }
+        
+    }
+
+}
+

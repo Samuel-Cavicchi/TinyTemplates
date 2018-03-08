@@ -1,0 +1,40 @@
+@import '~styles.scss';
+
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    // width: 100%;
+    // max-width: 500px;
+    .mat-form-field {
+        width: 100%;
+        flex: 1 1 auto;
+    }
+    
+
+    //max-width: 800px;
+    // //background-color: lighten(grey, 40%);
+    // //box-shadow: $z-depth-2;
+}
+
+
+.submit-area {
+    display: flex;
+    flex-flow: row;
+    button {
+        align-self: flex-start;
+    }
+    .mat-spinner{
+        align-self: flex-end;
+    }
+    .error{
+        font-family: 'Roboto', sans-serif;
+        align-self: flex-end;
+        color: $secondary-color;
+    }
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+

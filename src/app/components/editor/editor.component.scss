@@ -1,0 +1,119 @@
+@import '~styles.scss';
+
+
+.form-section {
+    display: flex;
+    flex-direction: row;
+    .form-section-left {
+        display: flex;
+        flex-direction: column;
+        margin-right: 18px;
+        // &.right {
+        //     align-self: flex-end;
+        // }
+        .mat-fab {
+            // display: flex;
+            // align-self: flex-start;
+             //width: 40px;
+             //height: 40px;
+            // margin: 0 5px;
+            margin-bottom: 0;
+            margin-top: 0;
+            //box-shadow: $z-depth-1;
+           // border-radius: 50%; 
+            background-color: darken(white,5%)!important;
+            mat-icon {
+                color:black!important;
+            }
+        }
+
+        .line {
+            display: flex;
+            flex-grow: 1;
+            align-self: flex-start;
+            width: 10px;
+            height: auto;
+            margin: 0 33px;
+            box-shadow: $z-depth-2;
+            background-color: darken(white,5%);
+        }
+    }
+
+    .form-section-right {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.title-section {
+    padding-bottom: 50px;
+    h1{
+        margin-top: 0;
+        padding-top: 0;
+        margin-bottom: 30px;
+    }
+    display: flex;
+
+}
+
+// .right {
+//     display: flex;
+//     justify-content: flex-end;
+//     flex: 1 1 auto;    
+    
+// }
+.fill {
+    flex: 1 1 auto;
+}
+.button-right {
+    align-self: right;
+    // background-color: lighten(grey, 20%)!important;
+}
+button{
+    &.right {
+        margin-left: 66.66%;
+    }
+    margin: 10px;
+    background-color: white!important;
+    mat-icon{
+        &.primary {
+            color: $primary-color;
+        }
+        &.secondary {
+            color: $secondary-color;
+        }
+    }
+}
+
+.slide-toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+}
+
+.form-group {
+    flex-direction: row;
+    width: 80%;
+    padding-top: 50px;
+    .half{
+        .mat-form-field{
+            width: 39%;
+            padding-right: 2%;
+        }
+    }
+    .full {
+        .mat-form-field{
+            width: 80%;
+            padding-right: 2%;
+        }
+    }
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+

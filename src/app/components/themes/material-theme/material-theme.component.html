@@ -1,0 +1,142 @@
+<div class="name-section">
+  <h1 class="mat-display-2">{{resume.basics.name}}</h1>
+  <h3 class="mat-headline">{{resume.basics.label}}</h3>
+  <div class="summary">
+    <p class="mat-caption">{{resume.basics.summary}}</p>
+
+  </div>
+  <div class="details">
+    <div class="detail">
+      <mat-icon>phone_android</mat-icon>
+      <p class="mat-body-2">{{resume.basics.phone}}</p>
+    </div>
+    <div class="detail">
+      <mat-icon>email</mat-icon>
+      <p class="mat-body-2">{{resume.basics.email}}</p>
+    </div>
+
+    <div class="detail">
+      <mat-icon>pin_drop</mat-icon>
+      <p class="mat-body-2">{{resume.basics.location.address}}, {{resume.basics.location.city}} {{resume.basics.location.region}}</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="content-section-1">
+
+
+  <div class="content-section-left">
+    <div class="resume-content">
+      <div class="resume-content-title">
+        <h1 class="mat-display-2">Work Experience</h1>
+      </div>
+
+      <div *ngFor="let work of resume.work index as i" class="resume-content-body">
+        <div class="work-side-section">
+          <div class="dot-point"></div>
+          <div class="line"></div>
+        </div>
+        <div class="work-section">
+          <h2 class="mat-title">{{work.company}}</h2>
+          <h2 class="mat-subheading-1"> <span class="thin">{{work.startDate}} - {{work.endDate}}</span></h2>
+          
+          <h3 class="mat-body-2">{{work.summary}}</h3>
+          <p *ngFor="let highlight of work.highlights index as x" class="mat-body-1">{{highlight}}</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="resume-content">
+      <div class="resume-content-title">
+        <h1 class="mat-display-2">Education</h1>
+      </div>
+
+      <div *ngFor="let education of resume.education" class="resume-content-body">
+        <div class="work-side-section">
+          <div class="dot-point"></div>
+          <div class="line"></div>
+        </div>
+        <div class="work-section">
+          <h2 class="mat-title">{{education.institution}}
+
+          </h2>
+          <h2 class="mat-subheading-1">
+            <span class="thin">{{education.startDate}} - {{education.endDate}}</span>
+          </h2>
+          <h2 class="mat-subheading-2">{{education.area}} {{education.gpa}}</h2>
+          <div class="chip-list" *ngIf="education.courses[0]">
+            <p *ngFor="let course of education.courses" class="mat-body-1 course chip">{{course}} </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section-right">
+
+    <div class="resume-content right">
+      <div class="resume-content-title right">
+        <h1 class="mat-display-2">Skills</h1>
+      </div>
+
+      <div *ngFor="let skill of resume.skills index as i" class="resume-content-body right">
+        <div class="work-side-section">
+          <div class="dot-point"></div>
+          <div class="line"></div>
+        </div>
+        <div class="work-section right">
+          <h2 class="mat-title skill">{{skill.name}}</h2>
+          <div *ngIf="skill.keywords[0]" class="chip-list right">
+            <p *ngFor="let keyword of skill.keywords" class="mat-body-1 right chip">{{keyword}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="resume-content right">
+      <div class="resume-content-title right">
+        <h1 class="mat-display-2">Reference</h1>
+      </div>
+
+      <div *ngFor="let reference of resume.references" class="resume-content-body right">
+        <div class="work-side-section">
+          <div class="dot-point"></div>
+          <div class="line"></div>
+        </div>
+        <div class="work-section right">
+          <h2 class="mat-title">{{reference.name}}</h2>
+          <p class="mat-body-1">{{reference.reference}}</p>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="resume-content right">
+      <div class="resume-content-title right">
+        <h1 class="mat-display-2">Awards</h1>
+      </div>
+
+      <div *ngFor="let award of resume.awards" class="resume-content-body right">
+        <div class="work-side-section">
+          <div class="dot-point"></div>
+          <div class="line"></div>
+        </div>
+        <div class="work-section right">
+          <h2 class="mat-title">{{award.title}}</h2>
+          <h2 class="mat-subheading-1">
+            <span class="thin">{{award.date}}</span>
+          </h2>
+          <h2 class="mat-subheading-2">{{award.awarder}}</h2>
+          <p class="mat-body-1">{{award.summary}}</p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

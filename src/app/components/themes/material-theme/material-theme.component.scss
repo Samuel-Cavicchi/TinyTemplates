@@ -1,0 +1,206 @@
+@import '~styles.scss';
+
+:host {
+    background-color: white;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+}
+h1{
+    margin: 20px 0!important;
+}
+.name-section {
+    flex: 1 1 auto;
+    color: white;
+    padding: 40px 60px;
+    background-color: darken($primary-color-light, 20%);
+    box-shadow: $z-depth-1;
+
+    .summary{
+        width: 75%;
+    }
+    .details {
+        margin-top: 30px;
+        
+        display:flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        .detail{
+            text-align: center;
+            mat-icon{
+                color: white!important;
+                margin: 10px;
+            }
+            display: flex;
+            flex-direction: row;
+        }
+
+    }
+}
+
+.mat-title {
+    //color: $primary-color-dark;
+    font-size: 23px;
+}
+
+
+.content-section-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content-section-left {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.content-section-right {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    width: 40%;
+}
+.resume-content {
+    .mat-body-1 {
+        margin-top: 0;
+        margin-bottom: 22px;
+    }
+    
+    .mat-body-2 {
+        margin-top: 0;
+        margin-bottom: 22px;
+    }
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    padding: 10px;
+    .right {
+        flex-direction: row-reverse;
+    }
+    .resume-content-title {
+        &.right {
+            text-align: right;
+        }
+        width: 100%;
+        h1{
+            color: darken($primary-color-light, 20%);
+        }
+    }
+    .resume-content-body {
+        display: flex;
+        flex-direction: row;
+        &.right {
+            flex-direction: row-reverse;
+        }
+        margin-top: 0;
+        padding-top: 0;
+        .work-section {
+            &.right {
+                text-align: right;
+                justify-content: flex-start;
+                flex-wrap: wrap-reverse;
+                h2 {
+                    &.right {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+            display: flex;
+            flex-direction: column;
+            align-content: column;
+            h2 {
+                line-height: 1em;
+            }
+            .mat-chip {
+                display: flex;
+                justify-content: column;
+                margin: 10px 5px;
+                margin-bottom: 20px;
+                align-self: column;
+            }
+            // width: 20%;              
+        }
+        
+        .work-side-section {
+            display: flex;
+            flex-direction: column;
+            margin-right: 6px;
+            // &.right {
+            //     align-self: flex-end;
+            // }
+            .dot-point {
+                // display: flex;
+                // align-self: flex-start;
+                width: 22px;
+                height: 22px;
+                margin: 0 5px;
+                margin-bottom: 0;
+                box-shadow: $z-depth-1;
+                border-radius: 50%; 
+                background-color: dodgerblue;
+            }
+
+            .line {
+                display: flex;
+                flex-grow: 1;
+                align-self: flex-start;
+                width: 4px;
+                height: auto;
+                margin: 0 14px;
+                box-shadow: $z-depth-1;
+                background-color: dodgerblue;
+            }
+            // width: 20%;
+
+            //flex-direction: row;
+        }
+    }
+.content-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+
+    }
+}
+
+.chip-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 15px;
+    padding-left: 0;
+    padding-bottom: 25px;
+    width: 80%;
+    &.column {
+        flex-direction: column;
+    }
+    &.right {
+        padding-left: 15px;
+        padding-right: 0;
+        flex-direction: row-reverse;
+    }
+    .chip {
+        // box-shadow: $z-depth-1;
+        background-color: lighten( lightgray, 7%);
+        padding: 8px;
+        margin: 5px;
+        min-width: 20px;
+        border-radius: 32px;
+        font-size: 12px;
+    }
+}
+
+
+.thin {
+    font-weight: 80!important;
+    color: grey;
+}
+
+
+

@@ -1,0 +1,49 @@
+<div class="content">
+  <div class="about-section">
+
+    <h4 class="mat-display-1">Choose and create your professional resume easily.</h4>
+
+    <p class="mat-subheading-2">
+      TinyTemplates is a resume templating website, providing users with a free and easy way to create, manage and store their resumes.</p>
+    <br>
+  </div>
+  <div class="account-section">
+    <div *ngIf="!authService.user">
+        <p class="mat-headline">Get Started with an Account</p>
+        <app-register-form></app-register-form>
+    </div>
+    <div *ngIf="authService.user">
+      <p class="mat-headline">Get Started with your Account</p>
+    </div>
+  </div>
+
+  <h3 class="mat-display-2">About</h3>
+  <p class="mat-headline">How does it work?</p>
+  <p class="mat-subheading-2">Once your data has been entered, it is automatically saved into a convenient templating format.
+     This format is known as JSON (JavaScript Object Notation):</p>
+    
+    <pre>
+      <code>
+        &quot;basics&quot;: {{ '{' }}
+          &quot;name&quot;: &quot;Richard Hendriks&quot;,
+          &quot;label&quot;: &quot;Programmer&quot;,
+          &quot;email&quot;: &quot;richard.hendriks@gmail.com&quot;,
+          &quot;phone&quot;: &quot;(912) 555-4321&quot;,
+          &quot;website&quot;: &quot;http://richardhendricks.com&quot;
+          {{ '}' }}
+      </code>
+    </pre>
+
+  <p class="mat-headline">Sources</p>
+  <div class="source-section">
+      <app-sources></app-sources>
+  </div>
+  
+  <h3 class="mat-display-2">Contact</h3>
+  <h4 class="mat-headline">Feedback or request a template.</h4>
+  <app-contact-form></app-contact-form>
+  <!-- <div *ngIf="!authService.user">
+    <p class="mat-headline">Please register to contact us.</p>
+  </div>
+  <div *ngIf="authService.user"></div> -->
+</div>

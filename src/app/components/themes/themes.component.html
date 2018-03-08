@@ -1,0 +1,24 @@
+<div class="theme-content">
+  <div class="about-section">
+    <h1 class="mat-display-2">Theme Selector</h1>
+    <div class="form-group">
+        <mat-form-field class="m12">
+            <mat-select [(ngModel)]="selectedTheme" placeholder="Choose a theme">
+              <div *ngFor="let theme of themes index as i">
+                  <mat-option [disabled]="!theme.available" [value]="theme.value">{{theme.name}}</mat-option>
+              </div>
+            </mat-select>
+          </mat-form-field>
+      <button mat-raised-button class="primary m12" (click)="generatePDF()">Download to PDF <mat-icon>file_download</mat-icon></button>
+  </div>
+  </div>
+
+  <div class="theme-section" id="theme-section">
+    <div *ngIf="selectedTheme === themes[0].value">
+      <app-material-theme></app-material-theme>
+    </div>
+    <div *ngIf="selectedTheme === themes[1].value">
+        <app-clean-theme></app-clean-theme>
+    </div>
+  </div>
+</div>

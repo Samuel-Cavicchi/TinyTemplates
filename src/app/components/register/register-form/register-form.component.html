@@ -1,0 +1,21 @@
+<div class="form-group">
+    <mat-form-field>
+        <input matInput placeholder="Email" [(ngModel)]="email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" placeholder="Password" [(ngModel)]="password">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" (keyup.enter)="register()" placeholder="Confirm Password" [(ngModel)]="confirmPassword">
+    </mat-form-field>
+
+    <div class="submit-area">
+        <button mat-raised-button (click)="register();" [disabled]="loading">Register
+            <mat-icon>send</mat-icon>
+        </button>
+        <div class="spacer"></div>
+        <mat-spinner *ngIf="loading" diameter="40"></mat-spinner>
+        <div *ngIf="!loading" class="error">{{errorMessage}}</div>
+    </div>
+
+</div>

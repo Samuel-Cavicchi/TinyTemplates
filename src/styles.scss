@@ -1,0 +1,80 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+$z-depth-0: 0 0px 0px rgba(0,0,0,0.12), 0 0px 0px rgba(0,0,0,0.24);
+$z-depth-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$z-depth-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$z-depth-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$z-depth-4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+$primary-color: #42a5f5;
+$primary-color-light: #80d6ff;
+$primary-color-dark: #0077c2;
+
+$secondary-color: #ff5722;
+$secondary-color-light: #ff8a50;
+$secondary-color-dark: #c41c00;
+
+body{
+    margin: 0;
+    background-color: darken(white, 3%);
+}
+.mat-icon {
+    color: $secondary-color;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.m12 {
+    @media screen and (max-width: 980px){
+        width: 90%;
+        margin: 2% 4%;
+        align-self: center;
+    }
+}
+
+.content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-content: flex-start;
+    margin: 2px 4%;
+    padding: 2% 14%;
+    //background: lighten(grey, 40%);
+    //box-shadow: $z-depth-1;
+    .about-section {
+        margin-right: 30%;
+    }
+    .account-section {
+        flex-direction: row;
+        @media screen and (max-width: 600px) {
+            width:100%;
+        }
+        @media screen and (max-width: 1000px) {
+            width:80%;
+        }
+            width:40%;
+
+    }
+}
+
+// button {
+//    background-color: none!important;
+// }
+// h1 {
+//     font-family: 'Roboto', sans-serif;
+//     text-transform: uppercase;
+//     line-height: 120%;
+//     font-weight: 100;
+//     font-size: 320%;
+//     text-align: center;
+// }
+
+// h2 {
+//     font-family: 'Roboto', sans-serif;
+// //    line-height: 120%;
+//     font-weight: 100;
+//     font-size: 250%;
+//     text-align: center;
+// }
