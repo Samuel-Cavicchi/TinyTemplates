@@ -6,6 +6,10 @@
     background-color: white;
     box-shadow: $z-depth-1;
     width: 1000px;
+    @media screen and (max-width: 1000px) {
+        width: 100vw;
+        padding: 0;
+    }
     margin-bottom: 30px;
 }
 

@@ -6,10 +6,16 @@ $background-color : grey;
     background: $background-color;
     justify-content: flex-start;
     list-style: none;
-    padding: 0 17%;
-    box-shadow: $z-depth-1;
+    min-height: 50px;
+    @media screen and (min-width: 1000px) {
+        padding: 0 17%;
+    }
 
+    box-shadow: $z-depth-1;
     a {
+        @media screen and (max-width: 750px) {
+            display:none;
+        }
         font-family: 'Roboto', sans-serif;
         flex: 1 1 auto;
         text-align: center;
@@ -37,9 +43,18 @@ $background-color : grey;
         }
         &.login-link {
             padding: 15px 1%;
-            max-width: 5%;
         }
         
+    }
+
+    button {
+        display: flex;
+        mat-icon {
+            color: white;
+        }
+        @media screen and (min-width: 750px) {
+            display:none;
+        }
     }
 
 }

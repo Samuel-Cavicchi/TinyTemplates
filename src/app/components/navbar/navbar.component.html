@@ -1,7 +1,21 @@
+<button mat-button [matMenuTriggerFor]="appMenu"><mat-icon>menu</mat-icon></button>
+<mat-menu #appMenu="matMenu">
+    <button mat-menu-item (click)="navigateTo('/home')" >Home</button>
+    <button mat-menu-item (click)="navigateTo('/editor')" >Editor</button>
+    <button mat-menu-item (click)="navigateTo('/themes')" >Themes</button>
+    <div *ngIf="!authService.user">
+        <button mat-menu-item (click)="navigateTo('/login')" >Login</button>
+        <button mat-menu-item (click)="navigateTo('/register')" >Register</button>
+    </div>
+    <div *ngIf="authService.user">
+        <button mat-menu-item (click)="authService.logout()" >Logout</button>
+    </div>
+</mat-menu>
+
 <a routerLink="/home" routerLinkActive="active-link">Home</a>
 <a routerLink="/editor" routerLinkActive="active-link">Editor</a>
 <a routerLink="/themes" routerLinkActive="active-link">Themes</a>
-<a class="hidden"></a>
+<div class="spacer"></div>
 <a *ngIf="!authService.user" class="login-link" routerLink="/login" routerLinkActive="active-link">Login</a>
 <a *ngIf="!authService.user" class="login-link" routerLink="/register" routerLinkActive="active-link">Register</a>
 <a *ngIf="authService.user" class="login-link" (click)="authService.logout()">Logout</a>

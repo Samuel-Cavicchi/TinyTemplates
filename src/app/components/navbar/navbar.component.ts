@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLinkActive, RouterLink } from '@angular/router';
+import { RouterLinkActive, RouterLink, Router } from '@angular/router';
 import { FirebaseAuthService } from '../../services/firebase-auth.service';
 
 @Component({
@@ -9,9 +9,12 @@ import { FirebaseAuthService } from '../../services/firebase-auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public authService: FirebaseAuthService) { }
+  constructor(public authService: FirebaseAuthService, private router: Router) { }
   ngOnInit() {
 
   }
 
+  navigateTo(str) {
+    this.router.navigateByUrl(str);
+  }
 }
