@@ -41,6 +41,14 @@ body{
     align-content: flex-start;
     margin: 2px 4%;
     padding: 2% 14%;
+    @media screen and (max-width: 600px) {
+        padding: 2% 0;
+        margin: 2px 0;
+    }
+    @media screen and (max-width: 1000px) {
+        padding: 2% 8%;
+        margin: 2px 2%;
+    }
     //background: lighten(grey, 40%);
     //box-shadow: $z-depth-1;
     .about-section {
@@ -52,9 +60,8 @@ body{
             width:100%;
         }
         @media screen and (max-width: 1000px) {
-            width:80%;
+            width:90%;
         }
-            width:40%;
 
     }
 }

@@ -4,6 +4,7 @@
 .form-section {
     display: flex;
     flex-direction: row;
+    width: 100%;
     .form-section-left {
         display: flex;
         flex-direction: column;
@@ -94,7 +95,7 @@ button{
 
 .form-group {
     flex-direction: row;
-    width: 80%;
+    width: 100%;
     padding-top: 50px;
     .half{
         .mat-form-field{

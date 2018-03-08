@@ -3,11 +3,11 @@
     <h2 class="mat-display-2">
       <span class="logo-primary">Template</span> Editor</h2>
     <p class="mat-subheading-2"> </p>
+    </div>
   <div *ngIf="!loading">
     <div class="slide-toggle">
       <mat-slide-toggle (keyup.enter)="update()" (blur)="update()" [(ngModel)]="autoFill" color="primary" (click)="checkAutoFill()">Auto Fill</mat-slide-toggle>
     </div>
-
     <div class="form-section">
       <div class="form-section-left">
         <button *ngIf="!hideBasics" (click)="hideBasics = true" class="button-right" mat-fab>
