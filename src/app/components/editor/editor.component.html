@@ -3,19 +3,19 @@
     <h2 class="mat-display-2">
       <span class="logo-primary">Template</span> Editor</h2>
     <p class="mat-subheading-2"> </p>
-    </div>
+  </div>
   <div *ngIf="!loading">
     <div class="slide-toggle">
       <mat-slide-toggle (keyup.enter)="update()" (blur)="update()" [(ngModel)]="autoFill" color="primary" (click)="checkAutoFill()">Auto Fill</mat-slide-toggle>
     </div>
     <div class="form-section">
       <div class="form-section-left">
-        <button *ngIf="!hideBasics" (click)="hideBasics = true" class="button-right" mat-fab>
+        <span *ngIf="!hideBasics" (click)="hideBasics = true" class="circle">
           <mat-icon>remove</mat-icon>
-        </button>
-        <button *ngIf="hideBasics" (click)="hideBasics = false" class="button-right" mat-fab>
+        </span>
+        <span *ngIf="hideBasics" (click)="hideBasics = false" class="circle">
           <mat-icon>add</mat-icon>
-        </button>
+        </span>
         <div class="line"></div>
       </div>
       <div class="form-section-right">
@@ -79,12 +79,12 @@
 
     <div class="form-section">
       <div class="form-section-left">
-        <button *ngIf="!hideWork" (click)="hideWork = true" class="button-right" mat-fab>
+        <span *ngIf="!hideWork" (click)="hideWork = true" class="circle">
           <mat-icon>remove</mat-icon>
-        </button>
-        <button *ngIf="hideWork" (click)="hideWork = false" class="button-right" mat-fab>
+        </span>
+        <span *ngIf="hideWork" (click)="hideWork = false" class="circle">
           <mat-icon>add</mat-icon>
-        </button>
+        </span>
         <div class="line"></div>
       </div>
 
@@ -94,83 +94,82 @@
         </div>
         <mat-divider></mat-divider>
 
-        <div *ngIf="!hideWork" class="form-group">
-          <div *ngFor="let work of resume.work; index as i; trackBy: customTrackBy">
-            <div class="full">
-              <mat-form-field>
-                <input matInput type="text" placeholder="Company" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="work.company">
-              </mat-form-field>
-              <button *ngIf="i > 0" (click)="removeWork(i)" mat-fab>
-                <mat-icon class="secondary">remove</mat-icon>
+        <div *ngIf="!hideWork">
+            <div *ngFor="let work of resume.work; index as i; trackBy: customTrackBy" class="content-section">
+              <div class="content-section-left">
+                <span class="circle" (click)="removeWork(i)" mat-fab>
+                  <mat-icon class="secondary">remove</mat-icon>
+                </span>
+                <div class="line"></div>
+
+              </div>
+              <div class="content-section-right">
+                <div class="full">
+                  <mat-form-field>
+                    <input matInput type="text" placeholder="Company" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="work.company">
+                  </mat-form-field>
+
+                </div>
+
+                <div class="full">
+                  <mat-form-field>
+                    <input matInput type="text" placeholder="Position" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="work.position">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput type="text" placeholder="Website" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="work.website">
+                  </mat-form-field>
+                </div>
+                <div class="half">
+                  <mat-form-field>
+                    <input matInput type="text" placeholder="Start Date" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="work.startDate">
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <input matInput type="text" placeholder="End Date" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="work.endDate">
+                  </mat-form-field>
+                </div>
+                <div class="full">
+                  <mat-form-field>
+                    <textarea matInput placeholder="Summary" matTextareaAutosize matAutosizeMinRows="4" matAutosizeMaxRows="10" (keyup.enter)="update()"
+                      (blur)="update()" [(ngModel)]="work.summary"></textarea>
+                  </mat-form-field>
+                </div>
+                <div class="full" *ngFor="let highlight of resume.work[i].highlights index as x; trackBy: customTrackBy">
+                  <mat-form-field>
+                    <input matInput type="text" placeholder="Highlight" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="resume.work[i].highlights[x]">
+                  </mat-form-field>
+                  <button mat-raised-button (click)="removeHighlight(i, x)" *ngIf="x > 0">
+                    <mat-icon>remove</mat-icon>
+                  </button>
+                </div>
+                <button (click)="addHighlight(i)" mat-raised-button>
+                  <mat-icon class="primary">add</mat-icon>
+                </button>
+              </div>
+              <button class="right" (click)="addWork()" mat-fab>
+                <mat-icon class="primary">add</mat-icon>
               </button>
             </div>
-
-            <div class="full">
-              <mat-form-field>
-                <input matInput type="text" placeholder="Position" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="work.position">
-              </mat-form-field>
-              <mat-form-field>
-                <input matInput type="text" placeholder="Website" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="work.website">
-              </mat-form-field>
+            <div class="content-section">
+              <div class="content-section-left">
+                  <span class="circle" (click)="addWork()" mat-fab>
+                      <mat-icon class="secondary">add</mat-icon>
+                    </span>
+              </div>
             </div>
-            <div class="half">
-              <mat-form-field>
-                <input matInput type="text" placeholder="Start Date" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="work.startDate">
-              </mat-form-field>
-
-              <mat-form-field>
-                <input matInput type="text" placeholder="End Date" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="work.endDate">
-              </mat-form-field>
-
-              <!-- <mat-form-field>
-      <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date (dd/mm/yyyy)">
-      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
-      <mat-datepicker #startDatePicker></mat-datepicker>
-    </mat-form-field>
-    <mat-form-field *ngIf="!currentWork[i]">
-      <input matInput [matDatepicker]="endDatePicker" placeholder="End Date (dd/mm/yyyy)">
-      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
-      <mat-datepicker #endDatePicker></mat-datepicker>
-    </mat-form-field> 
-    <mat-form-field *ngIf="currentWork[i]">
-      <input matInput [min]="minDate" type="text" placeholder="End Date" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="work.endDate">
-    </mat-form-field>
-    <mat-slide-toggle (keyup.enter)="update()" (blur)="update()" [(ngModel)]="currentWork[i]" color="primary" (click)="currentlyWorking(i)">Current Position</mat-slide-toggle>
--->
-            </div>
-            <div class="full">
-              <mat-form-field>
-                <textarea matInput placeholder="Summary" matTextareaAutosize matAutosizeMinRows="4" matAutosizeMaxRows="10" (keyup.enter)="update()"
-                  (blur)="update()" [(ngModel)]="work.summary"></textarea>
-              </mat-form-field>
-            </div>
-            <div class="full" *ngFor="let highlight of resume.work[i].highlights index as x; trackBy: customTrackBy">
-              <mat-form-field>
-                <input matInput type="text" placeholder="Highlight" (keyup.enter)="update()" (blur)="update()" [(ngModel)]="resume.work[i].highlights[x]">
-              </mat-form-field>
-              <button mat-raised-button (click)="removeHighlight(i, x)" *ngIf="x > 0">
-                <mat-icon>remove</mat-icon>
-              </button>
-            </div>
-            <button (click)="addHighlight(i)" mat-raised-button>
-              <mat-icon class="primary">add</mat-icon>
-            </button>
           </div>
-          <button class="right" (click)="addWork()" mat-fab>
-            <mat-icon class="primary">add</mat-icon>
-          </button>
-        </div>
+
       </div>
     </div>
 
     <div class="form-section">
       <div class="form-section-left">
-        <button *ngIf="!hideVolunteer" (click)="hideVolunteer = true" class="button-right" mat-fab>
+        <span *ngIf="!hideVolunteer" (click)="hideVolunteer = true" class="circle">
           <mat-icon>remove</mat-icon>
-        </button>
-        <button *ngIf="hideVolunteer" (click)="hideVolunteer = false" class="button-right" mat-fab>
+        </span>
+        <span *ngIf="hideVolunteer" (click)="hideVolunteer = false" class="circle">
           <mat-icon>add</mat-icon>
-        </button>
+        </span>
         <div class="line"></div>
       </div>
       <div class="form-section-right">
@@ -235,12 +234,12 @@
 
     <div class="form-section">
       <div class="form-section-left">
-        <button *ngIf="!hideEducation" (click)="hideEducation = true" class="button-right" mat-fab>
+        <span *ngIf="!hideEducation" (click)="hideEducation = true" class="circle">
           <mat-icon>remove</mat-icon>
-        </button>
-        <button *ngIf="hideEducation" (click)="hideEducation = false" class="button-right" mat-fab>
+        </span>
+        <span *ngIf="hideEducation" (click)="hideEducation = false" class="circle">
           <mat-icon>add</mat-icon>
-        </button>
+        </span>
         <div class="line"></div>
       </div>
       <div class="form-section-right">
@@ -303,12 +302,12 @@
 
     <div class="form-section">
       <div class="form-section-left">
-        <button *ngIf="!hideSkills" (click)="hideSkills = true" class="button-right" mat-fab>
+        <span *ngIf="!hideSkills" (click)="hideSkills = true" class="circle">
           <mat-icon>remove</mat-icon>
-        </button>
-        <button *ngIf="hideSkills" (click)="hideSkills = false" class="button-right" mat-fab>
+        </span>
+        <span *ngIf="hideSkills" (click)="hideSkills = false" class="circle">
           <mat-icon>add</mat-icon>
-        </button>
+        </span>
         <div class="line"></div>
       </div>
       <div class="form-section-right">
@@ -353,12 +352,12 @@
 
     <div class="form-section">
       <div class="form-section-left">
-        <button *ngIf="!hideReferences" (click)="hideReferences = true" class="button-right" mat-fab>
+        <span *ngIf="!hideReferences" (click)="hideReferences = true" class="circle">
           <mat-icon>remove</mat-icon>
-        </button>
-        <button *ngIf="hideReferences" (click)="hideReferences = false" class="button-right" mat-fab>
+        </span>
+        <span *ngIf="hideReferences" (click)="hideReferences = false" class="circle">
           <mat-icon>add</mat-icon>
-        </button>
+        </span>
         <div class="line"></div>
       </div>
       <div class="form-section-right">
@@ -393,12 +392,12 @@
 
     <div class="form-section">
       <div class="form-section-left">
-        <button *ngIf="!hideAwards" (click)="hideAwards = true" class="button-right" mat-fab>
+        <span *ngIf="!hideAwards" (click)="hideAwards = true" class="circle">
           <mat-icon>remove</mat-icon>
-        </button>
-        <button *ngIf="hideAwards" (click)="hideAwards = false" class="button-right" mat-fab>
+        </span>
+        <span *ngIf="hideAwards" (click)="hideAwards = false" class="circle">
           <mat-icon>add</mat-icon>
-        </button>
+        </span>
         <div class="line"></div>
       </div>
       <div class="form-section-right">
