@@ -70,7 +70,7 @@ export class EditorComponent implements OnInit, OnDestroy {
       }
       this.currentSnackBar = this.snackBar.open('Are you sure you want to delete this entry?', 'Delete', {
         duration: 5000,
-        horizontalPosition: 'right'
+        // horizontalPosition: 'right'
       });
       this.currentSnackBar.onAction().subscribe((data) => {
         reject();
@@ -82,15 +82,35 @@ export class EditorComponent implements OnInit, OnDestroy {
   }
 
   // Working on general function for every resume component
-  // removeResumeComponent(component) {
-  //   this.deleteConfirmation().then(() => {
-  //     //if (component > 0) {
-  //       console.log(component);
-  //       component.parent.splice(component);
-  //     //}
-  //     this.update();
-  //   }).catch(() => { return; });
+  removeResumeComponent(parent, index, warn) {
+    if (warn) {
+      this.deleteConfirmation().then(() => {
+        this.removeComponent(parent, index);
+      }).catch(() => { return; });
+    } else {
+      this.removeComponent(parent, index);
+    }
 
+
+  }
+
+  private removeComponent(component, index) {
+    if (component.length > 1) {
+      component.splice(index, 1);
+      this.update();
+    } else {
+      this.currentSnackBar = this.snackBar.open('There must be at least one entry.', 'Dismiss');
+    }
+  }
+
+  // Function to add element to component universally
+  // addResumeComponent(parent) {
+  //   const copy = Object.assign({}, parent[0]);
+  //   for(let i = 0; i < Object.keys(copy).length; i++) {
+
+  //   }
+  //   this.resume.work.push(copy);
+  //   this.update();
   // }
 
   addWork() {
