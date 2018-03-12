@@ -10,10 +10,10 @@
     </div>
     <div class="form-section">
       <div class="form-section-left">
-        <span *ngIf="!hideBasics" (click)="hideBasics = true" class="circle">
+        <span *ngIf="!resume.ishidden.basics" (click)="resume.ishidden.basics = true" class="circle">
           <mat-icon>remove</mat-icon>
         </span>
-        <span *ngIf="hideBasics" (click)="hideBasics = false" class="circle">
+        <span *ngIf="resume.ishidden.basics" (click)="resume.ishidden.basics = false" class="circle">
           <mat-icon>add</mat-icon>
         </span>
         <div class="line"></div>
@@ -25,7 +25,7 @@
 
         <mat-divider></mat-divider>
 
-        <div *ngIf="!hideBasics" class="form-group">
+        <div *ngIf="!resume.ishidden.basics" class="form-group">
           <div class="content-section">
             <div class="content-section-right">
               <div class="half">
@@ -84,10 +84,10 @@
     <!-- Work Section -->
     <div class="form-section">
       <div class="form-section-left">
-        <span *ngIf="!hideWork" (click)="hideWork = true" class="circle">
+        <span *ngIf="!resume.ishidden.work" (click)="resume.ishidden.work = true" class="circle">
           <mat-icon>remove</mat-icon>
         </span>
-        <span *ngIf="hideWork" (click)="hideWork = false" class="circle">
+        <span *ngIf="resume.ishidden.work" (click)="resume.ishidden.work = false" class="circle">
           <mat-icon>add</mat-icon>
         </span>
         <div class="line"></div>
@@ -99,7 +99,7 @@
         </div>
         <mat-divider></mat-divider>
 
-        <div *ngIf="!hideWork">
+        <div *ngIf="!resume.ishidden.work">
           <div *ngFor="let work of resume.work; index as i; trackBy: customTrackBy" class="content-section">
             <div class="content-section-left">
               <button (click)="removeResumeComponent(resume.work,i,true)" mat-fab>
@@ -182,10 +182,10 @@
     <!-- Work Experience Section -->
     <div class="form-section">
       <div class="form-section-left">
-        <span *ngIf="!hideVolunteer" (click)="hideVolunteer = true" class="circle">
+        <span *ngIf="!resume.ishidden.volunteer" (click)="resume.ishidden.volunteer = true" class="circle">
           <mat-icon>remove</mat-icon>
         </span>
-        <span *ngIf="hideVolunteer" (click)="hideVolunteer = false" class="circle">
+        <span *ngIf="resume.ishidden.volunteer" (click)="resume.ishidden.volunteer = false" class="circle">
           <mat-icon>add</mat-icon>
         </span>
         <div class="line"></div>
@@ -197,7 +197,7 @@
         </div>
         <mat-divider></mat-divider>
 
-        <div *ngIf="!hideVolunteer" class="form-group">
+        <div *ngIf="!resume.ishidden.volunteer" class="form-group">
           <div *ngFor="let volunteer of resume.volunteer; index as i; trackBy: customTrackBy" class="content-section">
 
             <div class="content-section-left">
@@ -277,10 +277,10 @@
     <!-- Education Section -->
     <div class="form-section">
       <div class="form-section-left">
-        <span *ngIf="!hideEducation" (click)="hideEducation = true" class="circle">
+        <span *ngIf="!resume.ishidden.education" (click)="resume.ishidden.education = true" class="circle">
           <mat-icon>remove</mat-icon>
         </span>
-        <span *ngIf="hideEducation" (click)="hideEducation = false" class="circle">
+        <span *ngIf="resume.ishidden.education" (click)="resume.ishidden.education = false" class="circle">
           <mat-icon>add</mat-icon>
         </span>
         <div class="line"></div>
@@ -291,7 +291,7 @@
           <h1 class="mat-display-2">Education</h1>
         </div>
         <mat-divider></mat-divider>
-        <div *ngIf="!hideEducation" class="form-group">
+        <div *ngIf="!resume.ishidden.education" class="form-group">
           <div *ngFor="let education of resume.education; index as i; trackBy: customTrackBy" class="content-section">
 
             <div class="content-section-left">
@@ -366,10 +366,10 @@
     <!-- Skills Section -->
     <div class="form-section">
       <div class="form-section-left">
-        <span *ngIf="!hideSkills" (click)="hideSkills = true" class="circle">
+        <span *ngIf="!resume.ishidden.skills" (click)="resume.ishidden.skills = true" class="circle">
           <mat-icon>remove</mat-icon>
         </span>
-        <span *ngIf="hideSkills" (click)="hideSkills = false" class="circle">
+        <span *ngIf="resume.ishidden.skills" (click)="resume.ishidden.skills = false" class="circle">
           <mat-icon>add</mat-icon>
         </span>
         <div class="line"></div>
@@ -380,7 +380,7 @@
           <h1 class="mat-display-2">Skills</h1>
         </div>
         <mat-divider></mat-divider>
-        <div *ngIf="!hideSkills" class="form-group">
+        <div *ngIf="!resume.ishidden.skills" class="form-group">
           <div *ngFor="let skill of resume.skills; index as i; trackBy: customTrackBy" class="content-section">
             <div class="content-section-left">
               <button (click)="removeResumeComponent(resume.skills, i, false)" mat-fab>
@@ -438,10 +438,10 @@
     <!-- References Section -->
     <div class="form-section">
       <div class="form-section-left">
-        <span *ngIf="!hideReferences" (click)="hideReferences = true" class="circle">
+        <span *ngIf="!resume.ishidden.references" (click)="resume.ishidden.references = true" class="circle">
           <mat-icon>remove</mat-icon>
         </span>
-        <span *ngIf="hideReferences" (click)="hideReferences = false" class="circle">
+        <span *ngIf="resume.ishidden.references" (click)="resume.ishidden.references = false" class="circle">
           <mat-icon>add</mat-icon>
         </span>
         <div class="line"></div>
@@ -451,7 +451,7 @@
           <h1 class="mat-display-2">References</h1>
         </div>
         <mat-divider></mat-divider>
-        <div *ngIf="!hideReferences" class="form-group">
+        <div *ngIf="!resume.ishidden.references" class="form-group">
           <div *ngFor="let reference of resume.references; index as i; trackBy: customTrackBy" class="content-section">
             <div class="content-section-left">
               <button (click)="removeResumeComponent(resume.references, i, true)" mat-fab>
@@ -489,10 +489,10 @@
     <!-- Awards Section -->
     <div class="form-section">
       <div class="form-section-left">
-        <span *ngIf="!hideAwards" (click)="hideAwards = true" class="circle">
+        <span *ngIf="!resume.ishidden.awards" (click)="resume.ishidden.awards = true" class="circle">
           <mat-icon>remove</mat-icon>
         </span>
-        <span *ngIf="hideAwards" (click)="hideAwards = false" class="circle">
+        <span *ngIf="resume.ishidden.awards" (click)="resume.ishidden.awards = false" class="circle">
           <mat-icon>add</mat-icon>
         </span>
         <div class="line"></div>
@@ -502,7 +502,7 @@
           <h1 class="mat-display-2">Awards</h1>
         </div>
         <mat-divider></mat-divider>
-        <div *ngIf="!hideAwards" class="form-group">
+        <div *ngIf="!resume.ishidden.awards" class="form-group">
           <div *ngFor="let award of resume.awards; index as i; trackBy: customTrackBy" class="content-section">
 
             <div class="content-section-left">

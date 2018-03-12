@@ -30,13 +30,6 @@ export class EditorComponent implements OnInit, OnDestroy {
   currentSnackBar;
   resume: ResumeFormatModel;
 
-  hideBasics = false;
-  hideWork = true;
-  hideVolunteer = true;
-  hideEducation = true;
-  hideSkills = true;
-  hideReferences = true;
-  hideAwards = true;
   ngOnDestroy() {
     if (this.currentSnackBar) {
       this.currentSnackBar.dismiss();
@@ -119,28 +112,10 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.update();
   }
 
-  removeWork(index: number) {
-    this.deleteConfirmation().then(() => {
-      if (index > 0) {
-        this.resume.work.splice(index, 1);
-      }
-      this.update();
-    }).catch(() => { return; });
-  }
 
   addHighlight(workIndex: number) {
     this.resume.work[workIndex].highlights.push('');
     this.update();
-  }
-
-  removeHighlight(workIndex: number, highlightIndex: number) {
-    this.deleteConfirmation().then(() => {
-      if (highlightIndex > 0) {
-        this.resume.work[workIndex].highlights.splice(highlightIndex, 1);
-      }
-      this.update();
-    }).catch(() => { return; });
-
   }
 
   addVolunteer() {
@@ -149,27 +124,9 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.update();
   }
 
-  removeVolunteer(index: number) {
-    this.deleteConfirmation().then(() => {
-      if (index > 0) {
-        this.resume.volunteer.splice(index, 1);
-      }
-      this.update();
-    }).catch(() => { return; });
-  }
-
   addVolunteerHighlight(volunteerIndex: number) {
     this.resume.volunteer[volunteerIndex].highlights.push('');
     this.update();
-  }
-
-  removeVolunteerHighlight(volunteerIndex: number, highlightIndex: number) {
-    this.deleteConfirmation().then(() => {
-      if (highlightIndex > 0) {
-        this.resume.volunteer[volunteerIndex].highlights.splice(highlightIndex, 1);
-      }
-      this.update();
-    }).catch(() => { return; });
   }
 
   addEducation() {
@@ -178,27 +135,9 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.update();
   }
 
-  removeEducation(index: number) {
-    this.deleteConfirmation().then(() => {
-      if (index > 0) {
-        this.resume.education.splice(index, 1);
-      }
-      this.update();
-    }).catch(() => { return; });
-  }
-
   addCourse(educationIndex: number) {
     this.resume.education[educationIndex].courses.push('');
     this.update();
-  }
-
-  removeCourse(educationIndex: number, courseIndex: number) {
-    this.deleteConfirmation().then(() => {
-      if (courseIndex > 0) {
-        this.resume.education[educationIndex].courses.splice(courseIndex, 1);
-      }
-      this.update();
-    }).catch(() => { return; });
   }
 
   addSkill() {
@@ -207,27 +146,9 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.update();
   }
 
-  removeSkill(index: number) {
-    this.deleteConfirmation().then(() => {
-      if (index > 0) {
-        this.resume.skills.splice(index, 1);
-      }
-      this.update();
-    }).catch(() => { return; });
-  }
-
   addKeyword(skillIndex: number) {
     this.resume.skills[skillIndex].keywords.push('');
     this.update();
-  }
-
-  removeKeyword(skillIndex: number, keywordIndex: number) {
-    this.deleteConfirmation().then(() => {
-      if (keywordIndex > 0) {
-        this.resume.skills[skillIndex].keywords.splice(keywordIndex, 1);
-      }
-      this.update();
-    }).catch(() => { return; });
   }
 
   addReference() {
@@ -236,28 +157,10 @@ export class EditorComponent implements OnInit, OnDestroy {
     this.update();
   }
 
-  removeReference(index: number) {
-    this.deleteConfirmation().then(() => {
-      if (index > 0) {
-        this.resume.references.splice(index, 1);
-      }
-      this.update();
-    }).catch(() => { return; });
-  }
-
   addAward() {
     const copy = Object.assign({}, this.ds.emptyTemplateResume.awards[0]);
     this.resume.awards.push(copy);
     this.update();
-  }
-
-  removeAward(index: number) {
-    this.deleteConfirmation().then(() => {
-      if (index > 0) {
-        this.resume.awards.splice(index, 1);
-      }
-      this.update();
-    }).catch(() => { return; });
   }
 
   update() {

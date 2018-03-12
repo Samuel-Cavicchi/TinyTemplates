@@ -1,4 +1,17 @@
 export interface ResumeFormatModel {
+    'ishidden': {
+      'basics': boolean,
+      'work': boolean,
+      'volunteer': boolean,
+      'education': boolean,
+      'awards': boolean,
+      'publications': boolean,
+      'skills': boolean,
+      'languages': boolean,
+      'interests': boolean,
+      'references': boolean
+    };
+
     'basics': {
       'name': string,
       'label': string,
@@ -24,6 +37,7 @@ export interface ResumeFormatModel {
     };
     'work': [
       {
+
         'company': string,
         'position': string,
         'website': string,
@@ -37,6 +51,7 @@ export interface ResumeFormatModel {
     ];
     'volunteer': [
       {
+
         'organization': string,
         'position': string,
         'website': string,
@@ -50,6 +65,7 @@ export interface ResumeFormatModel {
     ];
     'education': [
       {
+
         'institution': string,
         'area': string,
         'studyType': string,
@@ -63,6 +79,7 @@ export interface ResumeFormatModel {
     ];
     'awards': [
       {
+
         'title': string,
         'date': string,
         'awarder': string,
@@ -71,6 +88,7 @@ export interface ResumeFormatModel {
     ];
     'publications': [
       {
+
         'name': string,
         'publisher': string,
         'releaseDate': string,
@@ -80,6 +98,7 @@ export interface ResumeFormatModel {
     ];
     'skills': [
       {
+
         'name': string,
         'level': string,
         'keywords': [
@@ -89,12 +108,14 @@ export interface ResumeFormatModel {
     ];
     'languages': [
       {
+
         'language': string,
         'fluency': string
       }
     ];
     'interests': [
       {
+
         'name': string,
         'keywords': [
           string
@@ -103,6 +124,7 @@ export interface ResumeFormatModel {
     ];
     'references': [
       {
+
         'name': string,
         'reference': string
       }
