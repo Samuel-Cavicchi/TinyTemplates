@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { MaterialThemeComponent } from './material-theme/material-theme.component';
+import { FirebaseDatabaseService } from '../../services/firebase-database.service';
+
 import * as jsPDF from 'jspdf';
 import * as htmlCanvas from 'html2canvas';
 import * as moment from 'moment';
@@ -13,7 +15,8 @@ import * as moment from 'moment';
 })
 export class ThemesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public ds: FirebaseDatabaseService) { }
+  autoFillVal = false;
   selectedTheme = 'Mat1';
   themes: Array<any> = [
     {
@@ -34,6 +37,7 @@ export class ThemesComponent implements OnInit {
   ];
 
   ngOnInit() {
+    this.autoFillVal = this.ds.autofill.getValue();
   }
 
   generatePDF() {
@@ -52,6 +56,10 @@ export class ThemesComponent implements OnInit {
     });
 
 
+  }
+
+  autoFill() {
+    this.ds.autofill.next(!this.autoFillVal);
   }
 
 }

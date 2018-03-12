@@ -38,7 +38,8 @@ export class EditorComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // const now = moment(); // add this 2 of 4
     // console.log('hello world', now.format()); // add this 3 of 4
-    // console.log(now.add(7, 'days').format()); // add this 4of 4
+    // console.log(now.add(7, 'days').format()); // add this 4of 4\
+
     this.ds.resumeSub.subscribe(data => {
       if (data) {
         this.resume = data[0];

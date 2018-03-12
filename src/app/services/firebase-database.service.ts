@@ -275,6 +275,8 @@ export class FirebaseDatabaseService {
   private unsavedResume: ResumeFormatModel;
 
   public resumeRef: AngularFireList<any>;
+  public autofill: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
   constructor(public db: AngularFireDatabase, public auth: FirebaseAuthService) {
     this.subscribeAuthstate();
     auth.afAuth.authState.subscribe(() => {

@@ -18,6 +18,16 @@ export class MaterialThemeComponent implements OnInit {
         }
       }
     });
+
+    ds.autofill.subscribe(fill => {
+      if (fill === true) {
+        this.resume = ds.templateResume;
+      } else {
+        if (ds.resumeSub.getValue()) {
+          this.resume = ds.resumeSub.getValue()[0];
+        }
+      }
+    });
   }
 
   ngOnInit() {

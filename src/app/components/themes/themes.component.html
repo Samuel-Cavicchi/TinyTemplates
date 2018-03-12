@@ -2,14 +2,21 @@
   <div class="about-section">
     <h1 class="mat-display-2">Theme Selector</h1>
     <div class="form-group">
-        <mat-form-field class="m12">
-            <mat-select [(ngModel)]="selectedTheme" placeholder="Choose a theme">
-              <div *ngFor="let theme of themes index as i">
-                  <mat-option [disabled]="!theme.available" [value]="theme.value">{{theme.name}}</mat-option>
-              </div>
-            </mat-select>
-          </mat-form-field>
-      <button mat-raised-button class="primary m12" (click)="generatePDF()">Download to PDF <mat-icon>file_download</mat-icon></button>
+      <div class="form-left">
+          <mat-form-field class="m12">
+              <mat-select [(ngModel)]="selectedTheme" placeholder="Choose a theme">
+                <div *ngFor="let theme of themes index as i">
+                    <mat-option [disabled]="!theme.available" [value]="theme.value">{{theme.name}}</mat-option>
+                </div>
+              </mat-select>
+            </mat-form-field>
+        <button mat-raised-button class="primary m12" (click)="generatePDF()">Download to PDF <mat-icon>file_download</mat-icon></button>
+      </div>
+      <div class="spacer"></div>
+      <div class="form-right">
+          <mat-slide-toggle [(ngModel)]="autoFillVal" (click)="autoFill()" color="primary">Autofill</mat-slide-toggle>
+      </div>
+
   </div>
   </div>
 
