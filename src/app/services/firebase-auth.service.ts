@@ -68,6 +68,7 @@ export class FirebaseAuthService {
   }
 
   public logout() {
+    window.location.reload();
     return this.afAuth.auth.signOut();
   }
 }

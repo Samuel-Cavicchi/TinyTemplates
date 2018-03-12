@@ -284,6 +284,8 @@ export class FirebaseDatabaseService {
         if (this.resumes != null) { // And a resume exists
           this.unsavedResume = this.resumes[0]; // Save their work
         }
+      } else {
+        this.autofill.next(true);
       }
       this.subscribeAuthstate();
     });

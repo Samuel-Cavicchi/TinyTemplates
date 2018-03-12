@@ -44,15 +44,18 @@ export class EditorComponent implements OnInit, OnDestroy {
       if (data) {
         this.resume = data[0];
         this.loading = false;
-        if (!this.ds.isSavingResume()) {
-          this.currentSnackBar = this.snackBar.open('Resume has not been saved.', 'Sign In', {
-            duration: 0,
-            horizontalPosition: 'right'
-          });
-          this.currentSnackBar.onAction().subscribe(() => {
-            this.router.navigateByUrl('/login');
-          });
-        }
+        setTimeout(()=> {
+          if (!this.ds.isSavingResume() && !this.currentSnackBar) {
+            this.currentSnackBar = this.snackBar.open('Resume has not been saved.', 'Sign In', {
+              duration: 0,
+              horizontalPosition: 'right'
+            });
+            this.currentSnackBar.onAction().subscribe(() => {
+              this.router.navigateByUrl('/login');
+            });
+          }
+        });
+
       }
     });
   }

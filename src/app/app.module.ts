@@ -30,6 +30,7 @@ import { CleanThemeComponent } from './components/themes/clean-theme/clean-theme
 import { LoginFormComponent } from './components/login/login-form/login-form.component';
 import { SourcesComponent } from './components/sources/sources.component';
 import { ContactFormComponent } from './components/contact/contact-form/contact-form.component';
+import { ThemeService } from './services/theme.service';
 
 const appRoutes: Routes = [
   {
@@ -99,7 +100,7 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
-  providers: [FirebaseAuthService, FirebaseDatabaseService],
+  providers: [FirebaseAuthService, FirebaseDatabaseService, ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
